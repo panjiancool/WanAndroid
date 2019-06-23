@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ActionBarCommon">
+        <attr name="actionbar_type" format="integer"/>
+    </declare-styleable>
+</resources>

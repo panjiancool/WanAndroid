@@ -48,4 +48,10 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
+    // BannerView轮播控件
+    implementation 'com.github.panjiancool:BannerViewEx:v1.0.1'
+    // FragmentPager
+    implementation 'com.github.panjiancool:FragmentPagerEx:v1.0.1'
+    // SmartRefreshLayout
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-28'
 }

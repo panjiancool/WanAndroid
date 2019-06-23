@@ -3,11 +3,12 @@ package com.jpan.wanandroid.block.homepage;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jpan.wanandroid.R;
-import com.jpan.wanandroid.base.BaseActivity;
+import com.jpan.wanandroid.base.BaseFragment;
 import com.jpan.wanandroid.block.homepage.entry.HomeData;
 import com.jpan.wanandroid.block.homepage.entry.HomeListBean;
 import com.jpan.wanandroid.http.schedules.SchedulerProvider;
@@ -17,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class HomePageActivity extends BaseActivity implements HomeContract.View {
+public class HomePageFragment extends BaseFragment implements HomeContract.View {
 
     @BindView(R.id.text_content)
     TextView mTextContent;
@@ -26,18 +27,19 @@ public class HomePageActivity extends BaseActivity implements HomeContract.View 
     private StringBuilder builder = new StringBuilder();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter.getHomeList(true);
     }
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_homepage;
+        return R.layout.fragment_honmepage;
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
+
     }
 
     @Override
@@ -67,22 +69,21 @@ public class HomePageActivity extends BaseActivity implements HomeContract.View 
             }
             // TODO just for test code end
         }
-        Toast.makeText(this, "Success!!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Success!!", Toast.LENGTH_LONG).show();
         return true;
     }
 
     @Override
     public boolean getHomeListFail(String msg, boolean isRefresh) {
-        Toast.makeText(this, "Fail error msg:" + msg, Toast.LENGTH_LONG).show();
         return false;
     }
 
     private String getText(String name, String text) {
         if (TextUtils.isEmpty(text)) return "";
-        return name + ": " +text + "\r\n";
+        return name + ": " + text + "\r\n";
     }
 
     private String getText(String name, int text) {
-        return name + ": " +text + "\r\n";
+        return name + ": " + text + "\r\n";
     }
 }
